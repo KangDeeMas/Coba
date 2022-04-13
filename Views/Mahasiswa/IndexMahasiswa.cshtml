@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Hari4.Models.MahasiswaModel>
+
+    
+@{
+    ViewData["Title"] = "IndexMahasiswa";
+}
+
+<h1>IndexMahasiswa</h1>
+
+<p>
+    <a class="btn btn-success" asp-controller="Mahasiswa" asp-action="Create">Create New Mahasiswa</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Npm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaMahasiswa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alamat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JenisKelamin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (MahasiswaModel item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Npm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaMahasiswa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alamat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JenisKelamin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Mahasiswa" asp-action="Details" asp-route-id="@item.ID">Detail MHS</a>
+                    <a class="btn btn-warning" asp-controller="Mahasiswa" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a class="btn btn-danger" asp-controller="Mahasiswa" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
